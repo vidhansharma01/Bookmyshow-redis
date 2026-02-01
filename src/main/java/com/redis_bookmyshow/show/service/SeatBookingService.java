@@ -1,11 +1,16 @@
 package com.redis_bookmyshow.show.service;
 
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
 @Service
 public class SeatBookingService {
+
+    private static final Logger log = LoggerFactory.getLogger(UserService.class);
 
     private final RedisLockService lockService;
 
@@ -31,7 +36,7 @@ public class SeatBookingService {
             // 2. Mark seat as BOOKED in DB
             // 3. Proceed with payment
 
-            System.out.println("Seat booked successfully!");
+            log.info("Seat booked successfully!");
 
             return "Seat booked successfully";
 
